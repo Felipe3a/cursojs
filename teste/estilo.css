@@ -1,0 +1,22 @@
+.area {
+  width: 200px;
+  height: 200px;
+  color: white;
+  font: normal 20pt Arial;
+  text-align: center;
+  line-height: 200px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.vermelho {
+  background-color: red;
+}
+
+.azul {
+  background-color: blue;
+}
+
+.verde {
+  background-color: green;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+
+    Velocidade do veículo:
+    <input type="number" id="velocidade" placeholder="Digite a velocidade do veículo"> KM/h
+    <button id="btn" onclick="calcular()">Verificar Multa</button>
+
+    <script>
+        function calcular() {
+            var vel = document.getElementById("velocidade").value;
+            if (vel > 50) {
+                alert("Você foi multado!");
+            } else {
+                alert("Velocidade dentro do limite permitido.");
+            }
+        }
+    </script>
+</body>
+</html>

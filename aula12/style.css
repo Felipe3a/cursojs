@@ -1,0 +1,40 @@
+body {
+  background-color: rgb(122, 122, 141);
+  font-family: normal 15pt Arial;
+  text-align: center;
+  color: white;
+}
+
+header {
+}
+
+section {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.814);
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+}
+#foto {
+}
+
+
+
+img {
+  width: 300px; /* Ajuste o tamanho conforme necessário */
+  height: 300px; /* Mantém a proporção da imagem */
+  border-radius: 1000px;
+  margin: 20px;
+
+
+ 
+}
+
+footer {
+  font-style: italic;
+}

@@ -1,48 +1,86 @@
 <!DOCTYPE html>
+<!-- Define que o documento é um HTML5 -->
 <html lang="pt-br">
+  <!-- Define que o idioma da página é português do Brasil -->
   <head>
     <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8, que suporta acentos -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Faz com que a página seja exibida corretamente em dispositivos móveis -->
+    
     <title>Somando Números</title>
+    <!-- Título da aba do navegador -->
+
     <style>
+      /* CSS interno para estilizar a página */
+
       body {
         display: flex;
         align-items: center;
         justify-content: space-around;
         font: normal 20pt Arial;
+        /* Define layout centralizado e fonte */
       }
 
       input {
         font: normal 20pt Arial;
         width: 100px;
+        /* Estilo dos campos de entrada */
       }
 
       #res {
         font: normal 20pt Arial;
         color: blue;
         margin: 20px;
+        /* Estilo da div que mostra o resultado */
       }
-      #somar {
+
+      #btnsomar {
         background-color: lightgray;
+        /* OBS: Este seletor está incorreto. O botão usa id="btnSomar", então isso não afeta nada. */
       }
     </style>
   </head>
+
   <body>
     <h1>Somando valores</h1>
+    <!-- Título principal da página -->
 
     <input type="number" name="txtn1" id="txtn1" />
+    <!-- Primeiro campo de número com id txtn1 -->
+
     <input type="number" name="txtn2" id="txtn2" />
+    <!-- Segundo campo de número com id txtn2 -->
+
     <input type="button" value="Somar" id="btnSomar" onclick="somar()" />
+    <!-- Botão que chama a função somar() quando clicado -->
+
     <div id="res">Resultado...</div>
+    <!-- Área onde será exibido o resultado da soma -->
 
     <script>
+      // Função chamada ao clicar no botão "Somar"
       function somar() {
         var txtn1 = document.getElementById("txtn1");
+        // Captura o elemento do input txtn1
+
         var txtn2 = document.getElementById("txtn2");
+        // Captura o elemento do input txtn2
+
         var n1 = Number(txtn1.value);
+        // Converte o valor do input txtn1 para número
+
         var n2 = Number(txtn2.value);
+        // Converte o valor do input txtn2 para número
+
         var s = n1 + n2;
+        // Soma os dois números
+
         res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${s}</strong>`;
+        // Exibe o resultado na div com id="res"
+        // OBS: Está usando a variável "res", mas ela não foi declarada. Isso pode funcionar por acaso se ela já existe no escopo global, mas o ideal seria:
+        // var res = document.getElementById("res");
       }
     </script>
   </body>

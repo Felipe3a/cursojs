@@ -1,0 +1,133 @@
+<!-- Define o tipo de documento e a linguagem principal como Português do Brasil -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Cabeçalho da página -->
+<head>
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar acentuação -->
+    <meta charset="UTF-8">
+    
+    <!-- Torna a página responsiva em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título que aparece na aba do navegador -->
+    <title>Sistema de Multas</title>
+    
+    <!-- Estilização da página -->
+    <style>
+        /* Define a fonte padrão do corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo geral do formulário */
+        form {
+            width: 50%;                         /* Largura do formulário */
+            margin: 40px auto;                  /* Centraliza na tela */
+            padding: 20px;                      /* Espaçamento interno */
+            border: 1px solid #ccc;             /* Borda cinza clara */
+            border-radius: 10px;                /* Bordas arredondadas */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+        }
+
+        /* Estilo dos textos acima dos inputs */
+        label {
+            display: block;                     /* Quebra de linha */
+            margin-bottom: 10px;                /* Espaço abaixo do label */
+        }
+
+        /* Estilo dos campos de entrada de número */
+        input[type="number"] {
+            width: 100%;                        /* Ocupa 100% da largura do formulário */
+            height: 40px;                       /* Altura do campo */
+            margin-bottom: 20px;                /* Espaço abaixo do input */
+            padding: 10px;                      /* Espaço interno */
+            border: 1px solid #ccc;             /* Borda cinza */
+        }
+
+        /* Estilo do botão de verificar */
+        button[type="button"] {
+            width: 100%;                        /* Ocupa a largura total */
+            height: 40px;
+            background-color: #4CAF50;          /* Cor verde */
+            color: #fff;                        /* Cor da fonte: branca */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;                 /* Bordas levemente arredondadas */
+            cursor: pointer;                    /* Cursor de mão ao passar por cima */
+        }
+
+        /* Cor do botão ao passar o mouse */
+        button[type="button"]:hover {
+            background-color: #3e8e41;          /* Tom mais escuro de verde */
+        }
+
+        /* Estilo da área onde o resultado será exibido */
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;          /* Fundo cinza bem claro */
+        }
+    </style>
+</head>
+
+<!-- Corpo visível da página -->
+<body>
+
+    <!-- Formulário para inserção de dados -->
+    <form>
+        <!-- Título do formulário -->
+        <h2>Sistema de Multas</h2>
+        
+        <!-- Campo de entrada para a velocidade do veículo -->
+        <label for="velocidade">Velocidade do veículo (km/h):</label>
+        <input type="number" id="velocidade" placeholder="Digite a velocidade">
+
+        <!-- Campo de entrada para o limite de velocidade permitido -->
+        <label for="limite">Limite de velocidade (km/h):</label>
+        <input type="number" id="limite" placeholder="Digite o limite de velocidade">
+
+        <!-- Botão para acionar a verificação -->
+        <button type="button" onclick="verificarMulta()">Verificar Multa</button>
+
+        <!-- Área onde a mensagem de resultado será exibida -->
+        <div id="resultado"></div>
+    </form>
+
+    <!-- Script JavaScript para calcular e mostrar a multa -->
+    <script>
+        // Função chamada quando o botão "Verificar Multa" for clicado
+        function verificarMulta() {
+            // Obtém os valores digitados nos campos
+            const velocidade = parseInt(document.getElementById('velocidade').value);
+            const limite = parseInt(document.getElementById('limite').value);
+
+            // Verifica se os valores são válidos (não vazios ou inválidos)
+            if (isNaN(velocidade) || isNaN(limite)) {
+                document.getElementById('resultado').innerHTML = 'Por favor, digite valores válidos.';
+                return; // Sai da função caso os valores não sejam válidos
+            }
+
+            // Inicializa a variável de multa
+            let multa = 0;
+
+            // Se a velocidade for maior que o limite, calcula a multa
+            if (velocidade > limite) {
+                multa = (velocidade - limite) * 5; // R$5 por km/h acima do limite
+            }
+
+            // Seleciona o elemento onde o resultado será mostrado
+            const resultado = document.getElementById('resultado');
+
+            // Exibe o resultado conforme o valor da multa
+            if (multa > 0) {
+                resultado.innerHTML = `Você foi multado em R$ ${multa.toFixed(2)}.`; // Mostra o valor com 2 casas decimais
+            } else {
+                resultado.innerHTML = 'Você não foi multado.';
+            }
+        }
+    </script>
+</body>
+</html>
