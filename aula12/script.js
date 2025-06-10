@@ -6,7 +6,7 @@ function carregar() {
   var hora = data.getHours();
   var minutos = data.getMinutes(); // Obtém os minutos
 
-  saldacao.innerHTML = `${hora}:${minutos}h.`;
+  saldacao.innerHTML = `${hora}:${minutos}h`;
 
   if (hora >= 0 && hora < 12) {
     // Bom dia
@@ -26,3 +26,13 @@ function carregar() {
     msg.innerHTML = "Boa noite!";
   }
 }
+
+
+
+document.querySelector("a").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.body.classList.add("slide-out");
+  setTimeout(() => {
+    window.location.href = this.href;
+  }, 500);
+});
