@@ -9,7 +9,7 @@ c++
 }*/
 
  console.log('Vai começar...')
-for(var c=1; c<=100;c++) {
+for(var c=1; c<=10;c++) {
 
     console.log(c)
 
