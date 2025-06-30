@@ -1,6 +1,4 @@
-const agora = new Date();
-
-var diaSem = agora.getDay();
+const diaSem = new Date().getDay();
 
 
 
